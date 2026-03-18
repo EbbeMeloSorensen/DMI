@@ -8,5 +8,6 @@
   <Project Path="DMI.SMS.Persistence.Memory/DMI.SMS.Persistence.Memory.csproj" Id="3dd31e53-ede8-4f63-b538-9d9cebc85454" />
   <Project Path="DMI.SMS.Persistence/DMI.SMS.Persistence.csproj" Id="ad9b32a6-a69d-404e-91e1-c9e93acc09ed" />
   <Project Path="DMI.SMS.UI.Console/DMI.SMS.UI.Console.csproj" Id="c32f7e2c-f22a-4a0a-9ba2-827b0a04c768" />
+  <Project Path="DMI.SMS.UIElements/DMI.SMS.UIElements.csproj" />
   <Project Path="DMI.SMS.ViewModel/DMI.SMS.ViewModel.csproj" Id="72a43aa8-52a1-4c5d-a5df-9bba2376b1fa" />
 </Solution>
