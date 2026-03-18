@@ -31,8 +31,4 @@
     <ProjectReference Include="..\DMI.SMS.ViewModel\DMI.SMS.ViewModel.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Skins\" />
-  </ItemGroup>
-
 </Project>
