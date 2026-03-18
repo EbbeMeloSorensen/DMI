@@ -1,3 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="nuget.config" />
+  </Folder>
   <Project Path="DMI.SMS.Domain/DMI.SMS.Domain.csproj" Id="f8656652-2f9a-4807-adad-cd4dcbe73864" />
+  <Project Path="DMI.SMS.IO/DMI.SMS.IO.csproj" Id="34c4f410-ade6-473e-80c3-c9844b980091" />
 </Solution>
