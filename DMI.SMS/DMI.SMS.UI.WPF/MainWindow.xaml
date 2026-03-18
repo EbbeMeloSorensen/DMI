@@ -1,0 +1,122 @@
+﻿<Window x:Class="DMI.SMS.UI.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DMI.SMS.UI.WPF"
+        xmlns:uiElements="clr-namespace:DMI.SMS.UIElements;assembly=DMI.SMS.UIElements"
+        xmlns:tasks="clr-namespace:Craft.UIElements.Tasks;assembly=Craft.UIElements"
+        xmlns:logging="clr-namespace:Craft.UIElements.Logging;assembly=Craft.UIElements"
+        xmlns:scrollFree="clr-namespace:Craft.UIElements.Geometry2D.ScrollFree;assembly=Craft.UIElements"
+        mc:Ignorable="d"
+        Title="{Binding MainWindowTitle}" 
+        Height="450" 
+        Width="800"
+        WindowState="Maximized"
+        DataContext="{Binding Path=MainWindowViewModel, Source={StaticResource BootStrapper}}">
+
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Control" Key="N" 
+                    Command="{Binding CreateStationInformationCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+    </Window.InputBindings>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New Station Information" 
+                          Command="{Binding CreateStationInformationCommand}"/>
+                <Separator/>
+                <MenuItem Header="Export Data" 
+                          Command="{Binding ExportDataCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                <MenuItem Header="Import Data" 
+                          Command="{Binding ImportDataCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                <MenuItem Header="Clear Repository" 
+                          Command="{Binding ClearRepositoryCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                <Separator/>
+                <MenuItem Header="Make _Breakfast" 
+                          Command="{Binding MakeBreakfastCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                <Separator/>
+                <MenuItem Header="Extract _Meteorological Stations" 
+                          Command="{Binding ExtractMeteorologicalStationsCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                <MenuItem Header="Extract _Oceanographical Stations" 
+                          Command="{Binding ExtractOceanographicalStationsCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                <Separator/>
+                <MenuItem Header="_Settings"
+                          Command="{Binding OpenSettingsDialogCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                <Separator />
+                <MenuItem Header="_Exit"/>
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="Condition Classification" IsCheckable="True"
+                          IsChecked="{Binding ClassifyRecordsWithCondition}"/>
+                <MenuItem Header="Operational Time Intervals" IsCheckable="True"
+                          IsChecked="{Binding StationInformationCollectionViewModel.IncludeOperationIntervalsBars}"/>
+                <MenuItem Header="Observation Time Intervals" IsCheckable="True"
+                          IsChecked="{Binding StationInformationCollectionViewModel.IncludeObservationIntervalsBars}"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <uiElements:StationInformationListView Grid.Row="0" Grid.Column="0" 
+                                                   DataContext="{Binding StationInformationListViewModel}"/>
+
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <scrollFree:GeometryEditorView Grid.Row="0" 
+                    DataContext="{Binding GeometryEditorViewModel}"/>
+
+                <GridSplitter Grid.Row="0" 
+                              VerticalAlignment="Bottom" 
+                              Margin="2" 
+                              HorizontalAlignment="Stretch" 
+                              Height="2" 
+                              Background="Gray"/>
+
+                <uiElements:StationInformationDetailsView
+                    Grid.Row="1" 
+                    DataContext="{Binding StationInformationDetailsViewModel}"/>
+            </Grid>
+
+            <Expander Grid.Row="0" 
+                      Grid.Column="2" 
+                      Grid.RowSpan="2" 
+                      IsExpanded="False" 
+                      ExpandDirection="Left">
+                <Expander.Header>
+                    <TextBlock Text="Log">
+                        <TextBlock.LayoutTransform>
+                            <RotateTransform Angle="90"/>
+                        </TextBlock.LayoutTransform>
+                    </TextBlock>
+                </Expander.Header>
+                <logging:LogView Width="400" DataContext="{Binding LogViewModel}"/>
+            </Expander>
+
+            <tasks:TaskView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="3"
+                            Visibility="{Binding Busy, Converter={StaticResource BooleanToVisibilityConverter}}"
+                            DataContext="{Binding TaskViewModel}"/>
+        </Grid>
+    </DockPanel>
+</Window>
