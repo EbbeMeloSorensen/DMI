@@ -4,6 +4,7 @@
   </Folder>
   <Project Path="DMI.SMS.Application/DMI.SMS.Application.csproj" Id="aebba3aa-8339-4a6b-96fb-52d5d813f66a" />
   <Project Path="DMI.SMS.Domain/DMI.SMS.Domain.csproj" Id="f8656652-2f9a-4807-adad-cd4dcbe73864" />
+  <Project Path="DMI.SMS.IO.UnitTest/DMI.SMS.IO.UnitTest.csproj" Id="7d26f0db-c292-4d26-b536-2eb7c6ade5f4" />
   <Project Path="DMI.SMS.IO/DMI.SMS.IO.csproj" Id="34c4f410-ade6-473e-80c3-c9844b980091" />
   <Project Path="DMI.SMS.Persistence.Memory/DMI.SMS.Persistence.Memory.csproj" Id="3dd31e53-ede8-4f63-b538-9d9cebc85454" />
   <Project Path="DMI.SMS.Persistence/DMI.SMS.Persistence.csproj" Id="ad9b32a6-a69d-404e-91e1-c9e93acc09ed" />
