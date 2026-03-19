@@ -6,6 +6,7 @@
   <Project Path="DMI.SMS.Domain/DMI.SMS.Domain.csproj" Id="f8656652-2f9a-4807-adad-cd4dcbe73864" />
   <Project Path="DMI.SMS.IO.UnitTest/DMI.SMS.IO.UnitTest.csproj" Id="7d26f0db-c292-4d26-b536-2eb7c6ade5f4" />
   <Project Path="DMI.SMS.IO/DMI.SMS.IO.csproj" Id="34c4f410-ade6-473e-80c3-c9844b980091" />
+  <Project Path="DMI.SMS.Persistence.EntityFrameworkCore.Sqlite/DMI.SMS.Persistence.EntityFrameworkCore.Sqlite.csproj" Id="bce9abab-ad43-4c12-a606-f66230bf436c" />
   <Project Path="DMI.SMS.Persistence.EntityFrameworkCore/DMI.SMS.Persistence.EntityFrameworkCore.csproj" Id="bc0cbe04-3dec-4532-b14d-48adf37437e8" />
   <Project Path="DMI.SMS.Persistence.File/DMI.SMS.Persistence.File.csproj" Id="c8482539-4d39-45ed-bef0-0fa7ede38c94" />
   <Project Path="DMI.SMS.Persistence.Memory/DMI.SMS.Persistence.Memory.csproj" Id="3dd31e53-ede8-4f63-b538-9d9cebc85454" />
