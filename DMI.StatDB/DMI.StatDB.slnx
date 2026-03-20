@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="DMI.StatDB.Application/DMI.StatDB.Application.csproj" Id="7cd4fea9-2861-4da5-8a8a-620a754adfa6" />
   <Project Path="DMI.StatDB.Domain/DMI.StatDB.Domain.csproj" />
   <Project Path="DMI.StatDB.IO.UnitTest/DMI.StatDB.IO.UnitTest.csproj" Id="7019ee48-7fc6-44d3-866a-c79fd8860a38" />
   <Project Path="DMI.StatDB.IO/DMI.StatDB.IO.csproj" />
