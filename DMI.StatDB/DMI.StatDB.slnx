@@ -1,1 +1,4 @@
-<Solution />
+<Solution>
+  <Project Path="DMI.StatDB.Domain/DMI.StatDB.Domain.csproj" />
+  <Project Path="DMI.StatDB.IO/DMI.StatDB.IO.csproj" />
+</Solution>
