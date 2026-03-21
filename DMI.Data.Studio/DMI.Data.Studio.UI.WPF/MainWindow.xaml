@@ -1,0 +1,167 @@
+﻿<Window x:Class="DMI.Data.Studio.UI.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DMI.Data.Studio.UI.WPF"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:uiElementsSMS="clr-namespace:DMI.SMS.UIElements;assembly=DMI.SMS.UIElements"
+        xmlns:uiElementsStatDB="clr-namespace:DMI.StatDB.UIElements;assembly=DMI.StatDB.UIElements"
+        xmlns:scrollFree="clr-namespace:Craft.UIElements.Geometry2D.ScrollFree;assembly=Craft.UIElements"
+        xmlns:logging="clr-namespace:Craft.UIElements.Logging;assembly=Craft.UIElements"
+        xmlns:tasks="clr-namespace:Craft.UIElements.Tasks;assembly=Craft.UIElements"
+        mc:Ignorable="d"
+        Title="{Binding MainWindowTitle}" 
+        Height="450" 
+        Width="800"
+        WindowState="Maximized"
+        DataContext="{Binding Path=MainWindowViewModel, Source={StaticResource BootStrapper}}">
+
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Control" Key="N" 
+                    Command="{Binding CreateStationInformationCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+    </Window.InputBindings>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New Station Information" Command="{Binding CreateStationInformationCommand}"/>
+                <Separator/>
+                <MenuItem Header="Export Data" 
+                          Command="{Binding ExportDataCommand}"/>
+                <MenuItem Header="Extract Meteorological Station List" 
+                          Command="{Binding ExtractMeteorologicalStationListCommand}"/>
+                <MenuItem Header="Extract Oceanographical Station List" 
+                          Command="{Binding ExtractOceanographicalStationListCommand}"/>
+                <MenuItem Header="Import Data" 
+                          Command="{Binding ImportDataCommand}"/>
+                <MenuItem Header="Clear Repository" 
+                          Command="{Binding ClearRepositoryCommand}"/>
+                <Separator/>
+                <MenuItem Header="Settings" 
+                          Command="{Binding OpenSettingsDialogCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="SMS stations" IsCheckable="True"
+                          IsChecked="{Binding ShowSMSDBList}"/>
+                <MenuItem Header="StatDB stations" IsCheckable="True"
+                          IsChecked="{Binding ShowStatDBList}"/>
+                <Separator/>
+                <MenuItem Header="Operational Time Intervals" IsCheckable="True"
+                          IsChecked="{Binding IncludeOperationIntervalBars}"/>
+                <MenuItem Header="Observation Time Intervals" IsCheckable="True"
+                          IsChecked="{Binding IncludeObservationIntervalBars}"/>
+                <MenuItem Header="Transaction Time Intervals" IsCheckable="True"
+                          IsChecked="{Binding IncludeTransactionTimeIntervalBars}"/>
+                <MenuItem Header="Detailed Time Series" IsCheckable="True"
+                          IsChecked="{Binding IncludeDetailedTimeSeriesView}"/>
+                <!--<Separator/>-->
+                <!--<MenuItem Header="Condition Classification" IsCheckable="True"
+                          IsChecked="{Binding ClassifyRecordsWithCondition}"/>-->
+            </MenuItem>
+            <MenuItem Header="_Options">
+                <MenuItem Header="Auto populate Station List" IsCheckable="True"
+                          IsChecked="{Binding AutoPopulateStatDBStationList}"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="About" 
+                          Command="{Binding OpenAboutDialogCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.Visibility>
+                    <Binding Path="ShowSMSDBList" Converter="{StaticResource BooleanToVisibilityConverter}">
+                        <Binding.ConverterParameter>
+                            <system:Boolean>True</system:Boolean>
+                        </Binding.ConverterParameter>
+                    </Binding>
+                </Grid.Visibility>
+                <uiElementsSMS:StationInformationListView DataContext="{Binding StationInformationListViewModel}"/>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.Visibility>
+                    <Binding Path="ShowStatDBList" Converter="{StaticResource BooleanToVisibilityConverter}">
+                        <Binding.ConverterParameter>
+                            <system:Boolean>True</system:Boolean>
+                        </Binding.ConverterParameter>
+                    </Binding>
+                </Grid.Visibility>
+                <uiElementsStatDB:StationListView DataContext="{Binding StationListViewModel}"/>
+            </Grid>
+
+            <TabControl Grid.Row="0" Grid.Column="2"
+                        SelectedIndex="{Binding SelectedOveralTabIndex}">
+                <TabItem Header="Selected Records">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TabControl Grid.Row="0" SelectedIndex="1">
+                            <TabItem Header="Geospatial">
+                                <scrollFree:GeometryEditorView DataContext="{Binding GeometryEditorViewModel}"/>
+                            </TabItem>
+                            <TabItem Header="Temporal">
+                                <scrollFree:CoordinateSystemView DataContext="{Binding ChronologyViewModel}" />
+                            </TabItem>
+                        </TabControl>
+
+                        <GridSplitter Grid.Row="0" VerticalAlignment="Bottom" Margin="2" 
+                                      HorizontalAlignment="Stretch" Height="2" Background="Gray"/>
+
+                        <TabControl Grid.Row="1" 
+                                    SelectedIndex="{Binding SelectedDetailTabIndex}">
+                            <TabItem Header="Station Properties">
+                                <uiElementsSMS:StationInformationDetailsView 
+                                    DataContext="{Binding StationInformationDetailsViewModel}"/>
+                            </TabItem>
+                            <TabItem Header="Time Series"
+                                     Visibility="{Binding IncludeDetailedTimeSeriesView, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                <scrollFree:CoordinateSystemView 
+                                    DataContext="{Binding TimeSeriesViewModel.ScatterChartViewModel}" />
+                            </TabItem>
+                        </TabControl>
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Statistics (Entire Dataset)">
+                    <uiElementsSMS:StatisticsView DataContext="{Binding StatisticsViewModel}"/>
+                </TabItem>
+            </TabControl>
+
+            <Expander Grid.Row="0" Grid.Column="3" IsExpanded="True" ExpandDirection="Left">
+                <Expander.Header>
+                    <TextBlock Text="Log">
+                        <TextBlock.LayoutTransform>
+                            <RotateTransform Angle="90"/>
+                        </TextBlock.LayoutTransform>
+                    </TextBlock>
+                </Expander.Header>
+                <logging:LogView Width="400" DataContext="{Binding LogViewModel}"/>
+            </Expander>
+
+            <tasks:TaskView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="3"
+                            Visibility="{Binding Busy, Converter={StaticResource BooleanToVisibilityConverter}}"
+                            DataContext="{Binding TaskViewModel}"/>
+        </Grid>
+    </DockPanel>
+</Window>

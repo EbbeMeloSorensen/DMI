@@ -2,19 +2,26 @@
   <Project Path="../DMI.FD/DMI.FD.Domain.IO/DMI.FD.Domain.IO.csproj" />
   <Project Path="../DMI.FD/DMI.FD.Domain/DMI.FD.Domain.csproj" />
   <Project Path="../DMI.ObsDB/DMI.ObsDB.Domain/DMI.ObsDB.Domain.csproj" />
+  <Project Path="../DMI.ObsDB/DMI.ObsDB.Persistence.File/DMI.ObsDB.Persistence.File.csproj" />
   <Project Path="../DMI.ObsDB/DMI.ObsDB.Persistence/DMI.ObsDB.Persistence.csproj" />
   <Project Path="../DMI.SMS/DMI.SMS.Application/DMI.SMS.Application.csproj" />
   <Project Path="../DMI.SMS/DMI.SMS.Domain/DMI.SMS.Domain.csproj" />
   <Project Path="../DMI.SMS/DMI.SMS.IO/DMI.SMS.IO.csproj" />
+  <Project Path="../DMI.SMS/DMI.SMS.Persistence.File/DMI.SMS.Persistence.File.csproj" />
   <Project Path="../DMI.SMS/DMI.SMS.Persistence/DMI.SMS.Persistence.csproj" />
+  <Project Path="../DMI.SMS/DMI.SMS.UIElements/DMI.SMS.UIElements.csproj" />
   <Project Path="../DMI.SMS/DMI.SMS.ViewModel/DMI.SMS.ViewModel.csproj" />
   <Project Path="../DMI.StatDB/DMI.StatDB.Application/DMI.StatDB.Application.csproj" />
   <Project Path="../DMI.StatDB/DMI.StatDB.Domain/DMI.StatDB.Domain.csproj" />
   <Project Path="../DMI.StatDB/DMI.StatDB.IO/DMI.StatDB.IO.csproj" />
+  <Project Path="../DMI.StatDB/DMI.StatDB.Persistence.File/DMI.StatDB.Persistence.File.csproj" />
   <Project Path="../DMI.StatDB/DMI.StatDB.Persistence/DMI.StatDB.Persistence.csproj" />
+  <Project Path="../DMI.StatDB/DMI.StatDB.UIDataProvider.Persistence/DMI.StatDB.UIDataProvider.Persistence.csproj" />
+  <Project Path="../DMI.StatDB/DMI.StatDB.UIElements/DMI.StatDB.UIElements.csproj" />
   <Project Path="../DMI.StatDB/DMI.StatDB.ViewModel/DMI.StatDB.ViewModel.csproj" />
   <Project Path="DMI.Data.Studio.Application.UnitTest/DMI.Data.Studio.Application.UnitTest.csproj" Id="809ca51f-a43f-4a14-bd98-3117f74ea1a5" />
   <Project Path="DMI.Data.Studio.Application/DMI.Data.Studio.Application.csproj" Id="343c95ac-0125-4c1c-ab65-938dce505cd8" />
   <Project Path="DMI.Data.Studio.UI.Console/DMI.Data.Studio.UI.Console.csproj" Id="319010d5-e4e3-4088-97db-ad15433b4b55" />
+  <Project Path="DMI.Data.Studio.UI.WPF/DMI.Data.Studio.UI.WPF.csproj" Id="4f3ee4d1-e73f-4c50-8f79-dfe161ba5eaa" />
   <Project Path="DMI.Data.Studio.ViewModel/DMI.Data.Studio.ViewModel.csproj" Id="0de02207-066e-466c-abe2-5bc2680f7179" />
 </Solution>
