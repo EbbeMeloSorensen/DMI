@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.5.11612.153 insiders
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.ObsDB.Application", "DMI.ObsDB.Application\DMI.ObsDB.Application.csproj", "{16C8ED82-7121-4C21-B3FA-8D430CCCA5E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.ObsDB.Domain", "DMI.ObsDB.Domain\DMI.ObsDB.Domain.csproj", "{7A3EAB65-0B5A-48AA-9132-DE57D3E9570C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.ObsDB.Persistence.File.UnitTest", "DMI.ObsDB.Persistence.File.UnitTest\DMI.ObsDB.Persistence.File.UnitTest.csproj", "{A732255C-AFD7-4E43-9811-867527C4CD6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.ObsDB.Persistence.File", "DMI.ObsDB.Persistence.File\DMI.ObsDB.Persistence.File.csproj", "{E2560AD4-787C-488D-A693-BCA2F19657FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.ObsDB.Persistence.PostgreSQL", "DMI.ObsDB.Persistence.PostgreSQL\DMI.ObsDB.Persistence.PostgreSQL.csproj", "{91E42ED9-88CD-4F5E-B63F-1237BFB82D23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.ObsDB.Persistence", "DMI.ObsDB.Persistence\DMI.ObsDB.Persistence.csproj", "{46468853-8BAB-489A-A620-7ECBD8BCD842}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.ObsDB.Persistence.PostgreSQL.UnitTest", "DMI.ObsDB.Persistence.PostgreSQL.UnitTest\DMI.ObsDB.Persistence.PostgreSQL.UnitTest.csproj", "{4215DD74-F510-4856-BAAC-237DB028EF4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.ObsDB.Persistence.EntityFrameworkCore.PostgreSQL", "DMI.ObsDB.Persistence.EntityFrameworkCore.PostgreSQL\DMI.ObsDB.Persistence.EntityFrameworkCore.PostgreSQL.csproj", "{514277BC-4EC2-4CC2-A1E1-9174BD8D998E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.ObsDB.Persistence.EntityFrameworkCore.Sqlite", "DMI.ObsDB.Persistence.EntityFrameworkCore.Sqlite\DMI.ObsDB.Persistence.EntityFrameworkCore.Sqlite.csproj", "{6FA0D249-D587-4D57-9047-B2E4A742E94C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.ObsDB.Persistence.EntityFrameworkCore.Sqlite.UnitTest", "DMI.ObsDB.Persistence.EntityFrameworkCore.Sqlite.UnitTest\DMI.ObsDB.Persistence.EntityFrameworkCore.Sqlite.UnitTest.csproj", "{1566EA5C-9008-49A9-9480-9A378E342965}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.ObsDB.SimpleDataMigrator", "DMI.ObsDB.SimpleDataMigrator\DMI.ObsDB.SimpleDataMigrator.csproj", "{A1EA8F3E-D98E-4FAB-96BA-78D2CB5EB761}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16C8ED82-7121-4C21-B3FA-8D430CCCA5E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16C8ED82-7121-4C21-B3FA-8D430CCCA5E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16C8ED82-7121-4C21-B3FA-8D430CCCA5E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16C8ED82-7121-4C21-B3FA-8D430CCCA5E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A3EAB65-0B5A-48AA-9132-DE57D3E9570C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A3EAB65-0B5A-48AA-9132-DE57D3E9570C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A3EAB65-0B5A-48AA-9132-DE57D3E9570C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A3EAB65-0B5A-48AA-9132-DE57D3E9570C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A732255C-AFD7-4E43-9811-867527C4CD6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A732255C-AFD7-4E43-9811-867527C4CD6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A732255C-AFD7-4E43-9811-867527C4CD6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A732255C-AFD7-4E43-9811-867527C4CD6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2560AD4-787C-488D-A693-BCA2F19657FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2560AD4-787C-488D-A693-BCA2F19657FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2560AD4-787C-488D-A693-BCA2F19657FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2560AD4-787C-488D-A693-BCA2F19657FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91E42ED9-88CD-4F5E-B63F-1237BFB82D23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91E42ED9-88CD-4F5E-B63F-1237BFB82D23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91E42ED9-88CD-4F5E-B63F-1237BFB82D23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91E42ED9-88CD-4F5E-B63F-1237BFB82D23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46468853-8BAB-489A-A620-7ECBD8BCD842}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46468853-8BAB-489A-A620-7ECBD8BCD842}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46468853-8BAB-489A-A620-7ECBD8BCD842}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46468853-8BAB-489A-A620-7ECBD8BCD842}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4215DD74-F510-4856-BAAC-237DB028EF4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4215DD74-F510-4856-BAAC-237DB028EF4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4215DD74-F510-4856-BAAC-237DB028EF4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4215DD74-F510-4856-BAAC-237DB028EF4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{514277BC-4EC2-4CC2-A1E1-9174BD8D998E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{514277BC-4EC2-4CC2-A1E1-9174BD8D998E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{514277BC-4EC2-4CC2-A1E1-9174BD8D998E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{514277BC-4EC2-4CC2-A1E1-9174BD8D998E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FA0D249-D587-4D57-9047-B2E4A742E94C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FA0D249-D587-4D57-9047-B2E4A742E94C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FA0D249-D587-4D57-9047-B2E4A742E94C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FA0D249-D587-4D57-9047-B2E4A742E94C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1566EA5C-9008-49A9-9480-9A378E342965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1566EA5C-9008-49A9-9480-9A378E342965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1566EA5C-9008-49A9-9480-9A378E342965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1566EA5C-9008-49A9-9480-9A378E342965}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1EA8F3E-D98E-4FAB-96BA-78D2CB5EB761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1EA8F3E-D98E-4FAB-96BA-78D2CB5EB761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1EA8F3E-D98E-4FAB-96BA-78D2CB5EB761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1EA8F3E-D98E-4FAB-96BA-78D2CB5EB761}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B5019CE-F241-4648-B2D5-40F08FDDC4BD}
+	EndGlobalSection
+EndGlobal
