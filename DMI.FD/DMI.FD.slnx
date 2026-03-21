@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="DMI.FD.Domain.IO/DMI.FD.Domain.IO.csproj" Id="82fb4428-160e-4573-ad3d-2e59c3bbf112" />
   <Project Path="DMI.FD.Domain/DMI.FD.Domain.csproj" Id="ea9d26c5-9b34-454a-a31b-35d6f807965c" />
 </Solution>
