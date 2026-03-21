@@ -1,1 +1,11 @@
-<Solution />
+<Solution>
+  <Project Path="../DMI.FD/DMI.FD.Domain.IO/DMI.FD.Domain.IO.csproj" />
+  <Project Path="../DMI.FD/DMI.FD.Domain/DMI.FD.Domain.csproj" />
+  <Project Path="../DMI.ObsDB/DMI.ObsDB.Domain/DMI.ObsDB.Domain.csproj" />
+  <Project Path="../DMI.ObsDB/DMI.ObsDB.Persistence/DMI.ObsDB.Persistence.csproj" />
+  <Project Path="../DMI.SMS/DMI.SMS.Application/DMI.SMS.Application.csproj" />
+  <Project Path="../DMI.SMS/DMI.SMS.Domain/DMI.SMS.Domain.csproj" />
+  <Project Path="../DMI.SMS/DMI.SMS.IO/DMI.SMS.IO.csproj" />
+  <Project Path="../DMI.SMS/DMI.SMS.Persistence/DMI.SMS.Persistence.csproj" />
+  <Project Path="DMI.Data.Studio.Application/DMI.Data.Studio.Application.csproj" Id="343c95ac-0125-4c1c-ab65-938dce505cd8" />
+</Solution>

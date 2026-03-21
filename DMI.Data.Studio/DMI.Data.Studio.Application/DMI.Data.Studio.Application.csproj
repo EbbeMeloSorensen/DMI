@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Craft.Logging" Version="1.0.18" />
+    <PackageReference Include="Craft.Utils" Version="1.0.18" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DMI.FD\DMI.FD.Domain.IO\DMI.FD.Domain.IO.csproj" />
+    <ProjectReference Include="..\..\DMI.ObsDB\DMI.ObsDB.Persistence\DMI.ObsDB.Persistence.csproj" />
+    <ProjectReference Include="..\..\DMI.SMS\DMI.SMS.Application\DMI.SMS.Application.csproj" />
+  </ItemGroup>
+
+</Project>
