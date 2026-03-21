@@ -5,6 +5,7 @@
   <Project Path="DMI.StatDB.IO/DMI.StatDB.IO.csproj" />
   <Project Path="DMI.StatDB.Persistence.File/DMI.StatDB.Persistence.File.csproj" Id="d2eacf6e-11c1-4b7a-89df-a39f009eaac2" />
   <Project Path="DMI.StatDB.Persistence/DMI.StatDB.Persistence.csproj" Id="c042dee2-d152-43ae-b023-a2f36b8cda4f" />
+  <Project Path="DMI.StatDB.UI.Console/DMI.StatDB.UI.Console.csproj" Id="11aa6aac-8bfc-444c-9d52-74920f3dfb87" />
   <Project Path="DMI.StatDB.UI.WPF/DMI.StatDB.UI.WPF.csproj" Id="948326ba-9f02-4998-acda-be0338c98775" />
   <Project Path="DMI.StatDB.UIDataProvider.Persistence/DMI.StatDB.UIDataProvider.Persistence.csproj" Id="0e13cf6a-f54e-4a71-b7b3-7e3b3b199961" />
   <Project Path="DMI.StatDB.UIElements/DMI.StatDB.UIElements.csproj" Id="cd190bd5-a26d-43f9-adea-1062193c3862" />
