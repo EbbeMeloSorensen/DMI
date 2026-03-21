@@ -1,1 +1,4 @@
-<Solution />
+<Solution>
+  <Project Path="DMI.ObsDB.Domain/DMI.ObsDB.Domain.csproj" Id="7a3eab65-0b5a-48aa-9132-de57d3e9570c" />
+  <Project Path="DMI.ObsDB.Persistence/DMI.ObsDB.Persistence.csproj" Id="46468853-8bab-489a-a620-7ecbd8bcd842" />
+</Solution>
