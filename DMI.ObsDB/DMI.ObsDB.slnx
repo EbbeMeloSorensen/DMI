@@ -2,6 +2,7 @@
   <Project Path="DMI.ObsDB.Application/DMI.ObsDB.Application.csproj" Id="16c8ed82-7121-4c21-b3fa-8d430ccca5e8" />
   <Project Path="DMI.ObsDB.Domain/DMI.ObsDB.Domain.csproj" Id="7a3eab65-0b5a-48aa-9132-de57d3e9570c" />
   <Project Path="DMI.ObsDB.Persistence.EntityFrameworkCore.PostgreSQL/DMI.ObsDB.Persistence.EntityFrameworkCore.PostgreSQL.csproj" Id="514277bc-4ec2-4cc2-a1e1-9174bd8d998e" />
+  <Project Path="DMI.ObsDB.Persistence.EntityFrameworkCore.Sqlite/DMI.ObsDB.Persistence.EntityFrameworkCore.Sqlite.csproj" Id="6fa0d249-d587-4d57-9047-b2e4a742e94c" />
   <Project Path="DMI.ObsDB.Persistence.File.UnitTest/DMI.ObsDB.Persistence.File.UnitTest.csproj" Id="a732255c-afd7-4e43-9811-867527c4cd6a" />
   <Project Path="DMI.ObsDB.Persistence.File/DMI.ObsDB.Persistence.File.csproj" Id="e2560ad4-787c-488d-a693-bca2f19657fa" />
   <Project Path="DMI.ObsDB.Persistence.PostgreSQL.UnitTest/DMI.ObsDB.Persistence.PostgreSQL.UnitTest.csproj" Id="4215dd74-f510-4856-baac-237db028ef4b" />
