@@ -1008,85 +1008,80 @@ namespace DMI.Data.Studio.Application
 
             var spacings = new List<int> { 0 };
 
+            spacings.AddRange(observationTimes
+                .AdjacentPairs()
+                .Select(_ => (int)(_.Item2 - _.Item1).TotalMinutes));
 
-            // DUMMY
+            // Identify frequencies in use
+            var spacingOccurrences = new Dictionary<int, int>();
+
+            spacings.ForEach(_ =>
+            {
+                if (_ <= 0) return;
+
+                if (!spacingOccurrences.ContainsKey(_))
+                {
+                    spacingOccurrences[_] = 0;
+                }
+
+                spacingOccurrences[_]++;
+            });
+
             commonSpacings = new List<int>();
 
+            foreach (var kvp in spacingOccurrences)
+            {
+                // NB: For korte tidsserier kan en spacing, der reelt er mellem forskellige "segmenter" i tidsserien,
+                // godt forveksles med en, der svarer til en gængs frekvens
 
-            //spacings.AddRange(observationTimes
-            //    .AdjacenPairs()
-            //    .Select(_ => (int)(_.Item2 - _.Item1).TotalMinutes));
+                var percentage = 1.0 * kvp.Value / (observationTimes.Count + 1);
 
-            //// Identify frequencies in use
-            //var spacingOccurrences = new Dictionary<int, int>();
-            
-            //spacings.ForEach(_ =>
-            //{
-            //    if (_ <= 0) return;
+                if (percentage > 0.001)
+                {
+                    commonSpacings.Add(kvp.Key);
+                }
+            }
 
-            //    if (!spacingOccurrences.ContainsKey(_))
-            //    {
-            //        spacingOccurrences[_] = 0;
-            //    }
+            commonSpacings.Sort();
 
-            //    spacingOccurrences[_]++;
-            //});
+            var temp = observationTimes.Zip(spacings, (timestamp, spacing) => new
+            {
+                TimeStamp = timestamp,
+                Spacing = spacing
+            });
 
-            //commonSpacings = new List<int>();
+            while (temp.Any())
+            {
+                var chunk = new Chunk { StartTime = temp.First().TimeStamp };
+                temp = temp.Skip(1);
 
-            //foreach (var kvp in spacingOccurrences)
-            //{
-            //    // NB: For korte tidsserier kan en spacing, der reelt er mellem forskellige "segmenter" i tidsserien,
-            //    // godt forveksles med en, der svarer til en gængs frekvens
+                if (temp.Any() &&
+                    commonSpacings.Contains(temp.First().Spacing) &&
+                    !(temp.Skip(1).Any() && temp.First().Spacing > temp.Skip(1).First().Spacing))
+                {
+                    var spacingForChunk = temp.First().Spacing;
 
-            //    var percentage = 1.0 * kvp.Value / (observationTimes.Count + 1);
+                    var extraTimeStampsInChunk = temp
+                        .TakeWhile(_ => _.Spacing == spacingForChunk);
 
-            //    if (percentage > 0.001)
-            //    {
-            //        commonSpacings.Add(kvp.Key);
-            //    }
-            //}
+                    var count = extraTimeStampsInChunk.Count();
 
-            //commonSpacings.Sort();
+                    chunk.ObservationCount = count + 1;
 
-            //var temp = observationTimes.Zip(spacings, (timestamp, spacing) => new
-            //{
-            //    TimeStamp = timestamp,
-            //    Spacing = spacing
-            //});
+                    chunk.EndTime = extraTimeStampsInChunk.Any()
+                        ? extraTimeStampsInChunk.Last().TimeStamp
+                        : chunk.StartTime;
 
-            //while (temp.Any())
-            //{
-            //    var chunk = new Chunk { StartTime = temp.First().TimeStamp };
-            //    temp = temp.Skip(1);
+                    temp = temp.Skip(count);
+                }
+                else
+                {
+                    chunk.ObservationCount = 1;
+                    chunk.EndTime = chunk.StartTime;
+                }
 
-            //    if (temp.Any() && 
-            //        commonSpacings.Contains(temp.First().Spacing) &&
-            //        !(temp.Skip(1).Any() && temp.First().Spacing > temp.Skip(1).First().Spacing))
-            //    {
-            //        var spacingForChunk = temp.First().Spacing;
-
-            //        var extraTimeStampsInChunk = temp
-            //            .TakeWhile(_ => _.Spacing == spacingForChunk);
-
-            //        var count = extraTimeStampsInChunk.Count();
-
-            //        chunk.ObservationCount = count + 1;
-
-            //        chunk.EndTime = extraTimeStampsInChunk.Any() 
-            //            ? extraTimeStampsInChunk.Last().TimeStamp 
-            //            : chunk.StartTime;
-
-            //        temp = temp.Skip(count);
-            //    }
-            //    else
-            //    {
-            //        chunk.ObservationCount = 1;
-            //        chunk.EndTime = chunk.StartTime;
-            //    }
-
-            //    chunks.Enqueue(chunk);
-            //}
+                chunks.Enqueue(chunk);
+            }
 
             return chunks;
         }
