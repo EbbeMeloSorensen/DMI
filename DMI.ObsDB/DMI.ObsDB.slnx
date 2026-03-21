@@ -3,6 +3,7 @@
   <Project Path="DMI.ObsDB.Domain/DMI.ObsDB.Domain.csproj" Id="7a3eab65-0b5a-48aa-9132-de57d3e9570c" />
   <Project Path="DMI.ObsDB.Persistence.File.UnitTest/DMI.ObsDB.Persistence.File.UnitTest.csproj" Id="a732255c-afd7-4e43-9811-867527c4cd6a" />
   <Project Path="DMI.ObsDB.Persistence.File/DMI.ObsDB.Persistence.File.csproj" Id="e2560ad4-787c-488d-a693-bca2f19657fa" />
+  <Project Path="DMI.ObsDB.Persistence.PostgreSQL.UnitTest/DMI.ObsDB.Persistence.PostgreSQL.UnitTest.csproj" Id="4215dd74-f510-4856-baac-237db028ef4b" />
   <Project Path="DMI.ObsDB.Persistence.PostgreSQL/DMI.ObsDB.Persistence.PostgreSQL.csproj" Id="91e42ed9-88cd-4f5e-b63f-1237bfb82d23" />
   <Project Path="DMI.ObsDB.Persistence/DMI.ObsDB.Persistence.csproj" Id="46468853-8bab-489a-a620-7ecbd8bcd842" />
 </Solution>
