@@ -9,4 +9,5 @@
   <Project Path="DMI.ObsDB.Persistence.PostgreSQL.UnitTest/DMI.ObsDB.Persistence.PostgreSQL.UnitTest.csproj" Id="4215dd74-f510-4856-baac-237db028ef4b" />
   <Project Path="DMI.ObsDB.Persistence.PostgreSQL/DMI.ObsDB.Persistence.PostgreSQL.csproj" Id="91e42ed9-88cd-4f5e-b63f-1237bfb82d23" />
   <Project Path="DMI.ObsDB.Persistence/DMI.ObsDB.Persistence.csproj" Id="46468853-8bab-489a-a620-7ecbd8bcd842" />
+  <Project Path="DMI.ObsDB.SimpleDataMigrator/DMI.ObsDB.SimpleDataMigrator.csproj" Id="a1ea8f3e-d98e-4fab-96ba-78d2cb5eb761" />
 </Solution>
