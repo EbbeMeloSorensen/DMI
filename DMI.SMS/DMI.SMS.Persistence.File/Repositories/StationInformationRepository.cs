@@ -181,6 +181,11 @@ namespace DMI.SMS.Persistence.File.Repositories
 
         public int GenerateUniqueObjectId()
         {
+            if (!_stationInformations.Any())
+            {
+                return 1;
+            }
+
             return _stationInformations.Max(s => s.ObjectId) + 1;
         }
 

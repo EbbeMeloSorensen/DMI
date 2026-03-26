@@ -140,12 +140,17 @@ namespace DMI.SMS.Persistence.Memory.Repositories
 
         public int GenerateUniqueObjectId()
         {
-            throw new NotImplementedException();
+            if (!_stationInformations.Any())
+            {
+                return 1;
+            }
+
+            return _stationInformations.Max(s => s.ObjectId) + 1;
         }
 
         public string GenerateUniqueGlobalId()
         {
-            throw new NotImplementedException();
+            return $"{Guid.NewGuid()}";
         }
 
         public void RemoveLogically(
