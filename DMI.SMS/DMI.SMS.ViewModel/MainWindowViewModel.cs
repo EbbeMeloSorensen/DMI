@@ -1,20 +1,17 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using System.Windows;
 using System.Globalization;
+using System.Diagnostics;
 using Microsoft.Win32;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Craft.Utils;
+using Craft.Logging;
 using Craft.ViewModel.Utils;
 using Craft.ViewModels.Dialogs;
 using Craft.ViewModels.Geometry2D.ScrollFree;
 using Craft.ViewModels.Tasks;
 using DMI.SMS.Domain.Entities;
-using System.Diagnostics;
-using Craft.Logging;
 using DMI.SMS.Persistence;
 
 namespace DMI.SMS.ViewModel
@@ -51,7 +48,7 @@ namespace DMI.SMS.ViewModel
             }
         }
 
-        public RelayCommand<object> CreateStationInformationCommand { get; }
+        public AsyncCommand<object> CreateStationInformationCommand { get; }
         public RelayCommand DeleteSelectedStationInformationsCommand { get; }
         public AsyncCommand<object> ExportDataCommand { get; }
         public AsyncCommand<object> ImportDataCommand { get; }
@@ -104,7 +101,7 @@ namespace DMI.SMS.ViewModel
 
             TaskViewModel = new TaskViewModel();
 
-            CreateStationInformationCommand = new RelayCommand<object>(CreateStationInformation);
+            CreateStationInformationCommand = new AsyncCommand<object>(CreateStationInformation);
             DeleteSelectedStationInformationsCommand = new RelayCommand(DeleteSelectedStationInformations, CanDeleteSelectedStationInformations);
             ExportDataCommand = new AsyncCommand<object>(ExportData, CanExportData);
             ImportDataCommand = new AsyncCommand<object>(ImportData, CanImportData);
@@ -116,7 +113,7 @@ namespace DMI.SMS.ViewModel
             //DrawRoughOutlineOfDenmarkOnMap();
         }
 
-        private void CreateStationInformation(
+        private async Task CreateStationInformation(
             object owner)
         {
             var dialogViewModel = new CreateStationInformationDialogViewModel();
@@ -169,7 +166,7 @@ namespace DMI.SMS.ViewModel
                 stationInformation.ObjectId = unitOfWork.StationInformations.GenerateUniqueObjectId();
                 stationInformation.GlobalId = unitOfWork.StationInformations.GenerateUniqueGlobalId();
 
-                unitOfWork.StationInformations.Add(stationInformation);
+                await unitOfWork.StationInformations.Add(stationInformation);
                 unitOfWork.Complete();
             }
 

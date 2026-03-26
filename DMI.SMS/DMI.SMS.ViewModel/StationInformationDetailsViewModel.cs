@@ -98,8 +98,8 @@ namespace DMI.SMS.ViewModel
         private RelayCommand _discardChangesCommand; // Den her clearer bare formen, hvis man fortryder de ændringer, man har indtastet
         private RelayCommand<object> _manipulateCommand; // Her manipulerer vi bare hårdt
         private AsyncCommand<object> _eraseCommand; // Her bomber vi hårdt en række væk
-        private RelayCommand _updateCommand; // Her superseder vi en eksisterende række, så man kan se, hvem der har ændret noget - svarende til, hvad man jo altså gør med det rigtige system. Den kan kun bruges for en current record
-        private RelayCommand<object> _deleteCommand; // Her foretager vi en logisk delete
+        private AsyncCommand _updateCommand; // Her superseder vi en eksisterende række, så man kan se, hvem der har ændret noget - svarende til, hvad man jo altså gør med det rigtige system. Den kan kun bruges for en current record
+        private AsyncCommand<object> _deleteCommand; // Her foretager vi en logisk delete
         private RelayCommand<object> _promoteCommand; // Den her kan bruges på rækker, der er supersedede, dvs outdated eller deleted - man fisker så at sige rækken op af papirkurven og gør den current
                                                       // Rækken skal tildeles et nyt objekt id
         private RelayCommand<object> _mergeCommand; // Denne er til for at facilitere, at man kan forskyde tidspunktet for skift mellem 2 records
@@ -778,14 +778,14 @@ namespace DMI.SMS.ViewModel
             get { return _eraseCommand ?? (_eraseCommand = new AsyncCommand<object>(Erase, CanErase)); }
         }
 
-        public RelayCommand UpdateCommand
+        public AsyncCommand UpdateCommand
         {
-            get { return _updateCommand ?? (_updateCommand = new RelayCommand(Update, CanUpdate)); }
+            get { return _updateCommand ?? (_updateCommand = new AsyncCommand(Update, CanUpdate)); }
         }
 
-        public RelayCommand<object> DeleteCommand
+        public AsyncCommand<object> DeleteCommand
         {
-            get { return _deleteCommand ?? (_deleteCommand = new RelayCommand<object>(Delete, CanDelete)); }
+            get { return _deleteCommand ?? (_deleteCommand = new AsyncCommand<object>(Delete, CanDelete)); }
         }
 
         public RelayCommand<object> PromoteCommand
@@ -1237,7 +1237,7 @@ namespace DMI.SMS.ViewModel
             return _nRecordsSelected > 0 && !FormIsDirty();
         }
 
-        private void Update()
+        private async Task Update()
         {
             UpdateState(StateOfView.Updated);
 
@@ -1267,8 +1267,8 @@ namespace DMI.SMS.ViewModel
 
             using (var unitOfWork = _unitOfWorkFactory.GenerateUnitOfWork())
             {
-                unitOfWork.StationInformations.Update(stationInformation);
-                unitOfWork.StationInformations.Add(newStationInformation);
+                await unitOfWork.StationInformations.Update(stationInformation);
+                await unitOfWork.StationInformations.Add(newStationInformation);
                 unitOfWork.Complete();
             }
 
@@ -1295,7 +1295,7 @@ namespace DMI.SMS.ViewModel
                 FormIsDirty();
         }
 
-        private void Delete(
+        private async Task Delete(
             object owner)
         {
             var message = _nRecordsSelected == 1
@@ -1319,7 +1319,7 @@ namespace DMI.SMS.ViewModel
 
             using (var unitOfWork = _unitOfWorkFactory.GenerateUnitOfWork())
             {
-                unitOfWork.StationInformations.UpdateRange(_selectedStationInformations.Objects.ToList());
+                await unitOfWork.StationInformations.UpdateRange(_selectedStationInformations.Objects.ToList());
                 unitOfWork.Complete();
             }
 
