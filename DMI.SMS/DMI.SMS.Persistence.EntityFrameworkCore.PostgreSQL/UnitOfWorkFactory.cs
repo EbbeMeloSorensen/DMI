@@ -18,9 +18,10 @@ namespace DMI.SMS.Persistence.EntityFrameworkCore.PostgreSQL
         {
         }
 
-        public override Task<bool> CheckRepositoryConnection()
+        public override async Task<bool> CheckRepositoryConnection()
         {
-            throw new NotImplementedException();
+            using var context = new SMSDbContext();
+            return await context.Database.CanConnectAsync();
         }
 
         public override IUnitOfWork GenerateUnitOfWork()

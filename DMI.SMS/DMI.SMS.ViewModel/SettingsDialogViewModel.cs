@@ -1,12 +1,9 @@
-﻿using System;
-using System.Configuration;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 using System.Windows.Media;
 using GalaSoft.MvvmLight.Command;
 using Craft.ViewModels.Dialogs;
 using Craft.ViewModel.Utils;
 using Craft.ViewModels.TrafficLight;
-using DMI.SMS.Application;
 using DMI.SMS.Persistence;
 
 namespace DMI.SMS.ViewModel
