@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DMI.SMS.Persistence.Memory\DMI.SMS.Persistence.Memory.csproj" />
+    <ProjectReference Include="..\DMI.SMS.Persistence.EntityFrameworkCore.PostgreSQL\DMI.SMS.Persistence.EntityFrameworkCore.PostgreSQL.csproj" />
     <ProjectReference Include="..\DMI.SMS.UIElements\DMI.SMS.UIElements.csproj" />
     <ProjectReference Include="..\DMI.SMS.ViewModel\DMI.SMS.ViewModel.csproj" />
   </ItemGroup>
