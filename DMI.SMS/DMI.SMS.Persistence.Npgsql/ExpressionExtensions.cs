@@ -128,6 +128,7 @@ namespace DMI.SMS.Persistence.Npgsql
                         case "ObjectId":
                             return _columnNameMap[memberName];
                         case "maxDate":
+                        case "_maxDate":
                             return "'9999-12-31 23:59:59'";
                         case "_nameFilterInUppercase":
                             return GetValue(memberaccess) as string;

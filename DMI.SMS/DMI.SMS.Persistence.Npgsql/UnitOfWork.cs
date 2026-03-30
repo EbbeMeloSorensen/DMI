@@ -22,7 +22,14 @@ namespace DMI.SMS.Persistence.Npgsql
         {
             try
             {
-                _scope = new TransactionScope();
+                _scope = new TransactionScope(
+                    TransactionScopeOption.Required,
+                    new TransactionOptions
+                    { 
+                        IsolationLevel = IsolationLevel.ReadCommitted
+                    },
+                    TransactionScopeAsyncFlowOption.Enabled);                
+                
                 StationInformations = new StationInformationRepository();
                 ContactPersons = new ContactPersonRepository();
                 LegalOwners = new LegalOwnerRepository();

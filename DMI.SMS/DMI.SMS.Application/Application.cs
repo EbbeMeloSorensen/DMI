@@ -369,7 +369,8 @@ namespace DMI.SMS.Application
             {
                 predicates = new List<Expression<Func<StationInformation, bool>>>()
                 {
-                    _ => _.GdbToDate == new DateTime(9999, 12, 31, 23, 59, 59)
+                    //_ => _.GdbToDate == new DateTime(9999, 12, 31, 23, 59, 59)
+                    _ => _.GdbToDate == _maxDate
                 };
             }
 
