@@ -238,9 +238,18 @@ namespace DMI.StatDB.Persistence.Npgsql.Repositories
         {
             var stations = new List<Station>();
 
-            using (var conn = new NpgsqlConnection(ConnectionStringProvider.GetConnectionString()))
+            var connectionString = ConnectionStringProvider.GetConnectionString();
+
+            using (var conn = new NpgsqlConnection(connectionString))
             {
-                conn.Open();
+                try
+                {
+                    conn.Open();
+                }
+                catch (Exception e)
+                {
+                    var message = e.Message;
+                }
 
                 var query = $"SELECT " +
                     "\"statid\", " +
@@ -270,7 +279,7 @@ namespace DMI.StatDB.Persistence.Npgsql.Repositories
 
                     reader.Close();
                 }
-            }
+                }
 
             return stations;
         }
