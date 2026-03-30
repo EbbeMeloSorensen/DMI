@@ -21,10 +21,13 @@ namespace DMI.StatDB.Persistence.Npgsql
                 // The CoPilot extension in VS Code helped me with that!
                 //_scope = new TransactionScope();
                 
+                // This works with the new asyncrhonous setup
                 _scope = new TransactionScope(
                     TransactionScopeOption.Required,
                     new TransactionOptions
-                    { IsolationLevel = IsolationLevel.ReadCommitted },
+                    { 
+                        IsolationLevel = IsolationLevel.ReadCommitted
+                    },
                     TransactionScopeAsyncFlowOption.Enabled);                
 
                 Stations = new StationRepository();
