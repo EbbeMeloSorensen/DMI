@@ -178,7 +178,7 @@ namespace DMI.ObsDB.Application
 
                     using (var unitOfWorkTargetRepository = _unitOfWorkFactoryTargetRepository.GenerateUnitOfWork())
                     {
-                        unitOfWorkTargetRepository.ObservingFacilities.Add(observingFacility);
+                        await unitOfWorkTargetRepository.ObservingFacilities.Add(observingFacility);
                         unitOfWorkTargetRepository.Complete();
                     }
 
@@ -203,7 +203,7 @@ namespace DMI.ObsDB.Application
                             using (var unitOfWorkTargetRepository = 
                                 _unitOfWorkFactoryTargetRepository.GenerateUnitOfWork())
                             {
-                                unitOfWorkTargetRepository.Observations.AddRange(ts.Observations);
+                                await unitOfWorkTargetRepository.Observations.AddRange(ts.Observations);
                                 unitOfWorkTargetRepository.Complete();
                             }
 

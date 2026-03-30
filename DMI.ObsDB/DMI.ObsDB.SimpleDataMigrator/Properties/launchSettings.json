@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DMI.ObsDB.SimpleDataMigrator": {
+      "commandName": "Project",
+      "commandLineArgs": "migrate -y 2020 -q 2024 -l 3"
+    }
+  }
+}
