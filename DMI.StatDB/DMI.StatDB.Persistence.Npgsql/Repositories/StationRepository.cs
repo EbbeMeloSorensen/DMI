@@ -242,14 +242,7 @@ namespace DMI.StatDB.Persistence.Npgsql.Repositories
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
-                try
-                {
-                    conn.Open();
-                }
-                catch (Exception e)
-                {
-                    var message = e.Message;
-                }
+                conn.Open();
 
                 var query = $"SELECT " +
                     "\"statid\", " +

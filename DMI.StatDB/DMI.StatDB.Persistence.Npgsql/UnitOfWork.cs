@@ -16,7 +16,17 @@ namespace DMI.StatDB.Persistence.Npgsql
         {
             try
             {
-                _scope = new TransactionScope();
+                // This worked with the old setup, where the Repository wasn't asynchronous,
+                // but with the new setup, where the Repository is asynchronous, we need to enable async flow in the TransactionScope.
+                // The CoPilot extension in VS Code helped me with that!
+                //_scope = new TransactionScope();
+                
+                _scope = new TransactionScope(
+                    TransactionScopeOption.Required,
+                    new TransactionOptions
+                    { IsolationLevel = IsolationLevel.ReadCommitted },
+                    TransactionScopeAsyncFlowOption.Enabled);                
+
                 Stations = new StationRepository();
                 Positions = new PositionRepository();
             }

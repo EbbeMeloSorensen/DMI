@@ -109,12 +109,12 @@ namespace DMI.StatDB.Application
         public async Task ExportData(
             ProgressCallback progressCallback = null)
         {
-            await Task.Run(() =>
+            await Task.Run(async () =>
             {
                 Logger?.WriteLine(LogMessageCategory.Information, "Exporting data..");
                 progressCallback?.Invoke(0.0, "Exporting data");
 
-                UIDataProvider.ExportData("StatDBData_Export.json");
+                await UIDataProvider.ExportData("StatDBData_Export.json");
 
                 progressCallback?.Invoke(100, "");
                 Logger?.WriteLine(LogMessageCategory.Information, "Completed exporting data");
