@@ -124,10 +124,10 @@ namespace DMI.ObsDB.Persistence.PostgreSQL.Repositories
                 {
                     conn.Open();
 
-                    //var basisTable = "temp_wind_radiation";
-                    var basisTable = "precip_hum_pressure";
-                    //var parameter = "temp_dry";
-                    var parameter = "precip_past10min";
+                    var basisTable = "temp_wind_radiation";
+                    //var basisTable = "precip_hum_pressure";
+                    var parameter = "temp_dry";
+                    //var parameter = "precip_past10min";
 
                     var query = $"SELECT DISTINCT(\"statid\") " +
                         $"FROM {ConnectionStringProvider.GetPostgreSqlSchema()}.\"{basisTable}_{year}\" " +
