@@ -21,6 +21,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.SMS.Persistence", "..\D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.Data.Studio.Application", "DMI.Data.Studio.Application\DMI.Data.Studio.Application.csproj", "{343C95AC-0125-4C1C-AB65-938DCE505CD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.Data.Studio.UI.Console", "DMI.Data.Studio.UI.Console\DMI.Data.Studio.UI.Console.csproj", "{899C528A-BB67-4AEC-8F63-895E4923FC0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.ObsDB.Persistence.File", "..\DMI.ObsDB\DMI.ObsDB.Persistence.File\DMI.ObsDB.Persistence.File.csproj", "{24925C54-0188-40E6-A1BF-F095E1180EB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMI.SMS.Persistence.File", "..\DMI.SMS\DMI.SMS.Persistence.File\DMI.SMS.Persistence.File.csproj", "{DF1D15FD-75C9-41AA-9A6A-5498078608E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +69,18 @@ Global
 		{343C95AC-0125-4C1C-AB65-938DCE505CD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{343C95AC-0125-4C1C-AB65-938DCE505CD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{343C95AC-0125-4C1C-AB65-938DCE505CD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{899C528A-BB67-4AEC-8F63-895E4923FC0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{899C528A-BB67-4AEC-8F63-895E4923FC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{899C528A-BB67-4AEC-8F63-895E4923FC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{899C528A-BB67-4AEC-8F63-895E4923FC0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24925C54-0188-40E6-A1BF-F095E1180EB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24925C54-0188-40E6-A1BF-F095E1180EB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24925C54-0188-40E6-A1BF-F095E1180EB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24925C54-0188-40E6-A1BF-F095E1180EB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF1D15FD-75C9-41AA-9A6A-5498078608E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF1D15FD-75C9-41AA-9A6A-5498078608E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF1D15FD-75C9-41AA-9A6A-5498078608E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF1D15FD-75C9-41AA-9A6A-5498078608E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
