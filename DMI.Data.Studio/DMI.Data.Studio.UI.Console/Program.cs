@@ -10,7 +10,7 @@ namespace DMI.Data.Studio.UI.Console
             System.Console.WriteLine("DMI.Data.Studio.UI.Console");
 
             // Jeg overrider lige her, for af en eller anden årsag får den ikke fat i parametrene fra launchSettings.json
-            args = new string[] { "intervals", "-s", "530020,530520", "-p", "temp_dry", "-f", "1953", "-l", "2026", "-t", "24" };
+            //args = new string[] { "intervals", "-s", "530020,530520", "-p", "temp_dry", "-f", "1953", "-l", "2026", "-t", "24" };
 
             await Parser.Default.ParseArguments<
                     Die,
